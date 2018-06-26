@@ -1,5 +1,6 @@
 package com.fox;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -17,15 +18,29 @@ public class Album {
 
     }
 
-    public Song printSongsAlbum(){
+    public ArrayList<String> getSongDuration(){
         Iterator songIterator = myAlbums.iterator ();
+        ArrayList<String> theListName = new ArrayList<String> (  );
         while (songIterator.hasNext()){
             Song item = (Song) songIterator.next ();
-            return item;
-//            System.out.println ( item.getTitle ());
+            theListName.add ( item.getTitle ());
 
         }
-        return null;
+
+        return theListName;
+    }
+
+    public ArrayList<String> getSongDetails(){
+        Iterator songIterator = myAlbums.iterator ();
+        ArrayList<String> theListName = new ArrayList<String> (  );
+        while (songIterator.hasNext()){
+            Song item = (Song) songIterator.next ();
+            theListName.add (item.getTitle ());
+            theListName.add (item.songPeriod());
+
+        }
+
+        return theListName;
     }
 
     public String getAlbumName() {

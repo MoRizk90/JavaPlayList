@@ -1,9 +1,5 @@
 package com.fox;
-
-import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class Main {
@@ -24,44 +20,57 @@ public class Main {
         foxAlbum.addSong ( alibaba );
         foxAlbum.addSong ( amrdiab );
         foxAlbum.addSong ( hama2y );
+//        ArrayList<String> theSongs = foxAlbum.getSongDetails();
+//        for (int i = 0; i < theSongs.size ();i++){
+//            System.out.println (theSongs.get ( i ));
+//        }
 
-        foxAlbum.printSongsAlbum ();
         Album MoAlbum = new Album ( "MoAlbum" );
-        foxAlbum.addSong ( bobs );
-        foxAlbum.addSong ( zenoa );
-        foxAlbum.addSong ( herculs );
+        MoAlbum.addSong ( bobs );
+        MoAlbum.addSong ( zenoa );
+        MoAlbum.addSong ( herculs );
 
         Album zekoAlbum = new Album ( "zeko" );
-        foxAlbum.addSong ( ehab2 );
-        foxAlbum.addSong ( lola );
-        foxAlbum.addSong ( zeko );
-
+        zekoAlbum.addSong ( ehab2 );
+        zekoAlbum.addSong ( lola );
+        zekoAlbum.addSong ( zeko );
+//        System.out.println (zekoAlbum.printSongsAlbum ().getTitle ());
+//
         ArrayList<Album> AlbumsList = new ArrayList<Album> (  );
         AlbumsList.add ( foxAlbum );
         AlbumsList.add ( MoAlbum );
         AlbumsList.add ( zekoAlbum );
 
-        for (int i = 0 ; i < AlbumsList.size (); i++){
-            System.out.println (AlbumsList.get ( i ).getAlbumName ());
-        }
+//        for (int i = 0 ; i < AlbumsList.size (); i++){
+//            System.out.println (AlbumsList.get ( i ).getAlbumName ());
+//        }
 
         findSong("Dary", AlbumsList);
 
     }
 
+//
+//    public static void playList(ArrayList<Album> MyAlbums){
+//        Iterator<Album> albumIterator = MyAlbums.iterator ();
+//        LinkedList<Song> playList = new LinkedList<Song> ( );
+//
+//
+//    }
 
-    public static void playList(ArrayList<Album> MyAlbums){
-        Iterator<Album> albumIterator = MyAlbums.iterator ();
-        LinkedList<Song> playList = new LinkedList<Song> (  );
+//
 
+        public static void findSong(String songToFind, ArrayList<Album> listAlbum){
+            for (int AlbumIndex = 0; AlbumIndex < listAlbum.size(); AlbumIndex++){
+                ArrayList<String> theAlbum = listAlbum.get(AlbumIndex).getSongDetails();
+                for (int songIndex = 0 ; songIndex < theAlbum.size(); songIndex++){
+                    if (theAlbum.get(songIndex).equals(songToFind)){
+                        System.out.println("we foung the song");
+                        System.out.println("the song period is " + songIndex+1);
+                    }
+                }
+            }
 
-    }
-    public static void findSong(String songName, ArrayList<Album> theAlbumList){
-        for(int songIndex = 0; songIndex < theAlbumList.size (); songIndex++){
-            System.out.println ("find: " + theAlbumList.get ( songIndex ).printSongsAlbum ());
         }
-    }
-
 
 }
 
